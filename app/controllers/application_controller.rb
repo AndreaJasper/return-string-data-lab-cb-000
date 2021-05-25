@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  
+
    def index
     @products = Product.all
   end
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
   def create
     Product.create(product_params)
-    redirect_to products_path 
+    redirect_to products_path
   end
 
   private
@@ -27,5 +27,5 @@ class ApplicationController < ActionController::Base
   def product_params
     params.require(:product).permit(:name, :description, :inventory, :price)
   end
-  
+
 end
